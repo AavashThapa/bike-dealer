@@ -41,11 +41,11 @@
         </div>
         <!-- Search box 3 start -->
         <div class="search-box-4 sb-8" style="z-index: 10;">
-            <div class="d-flex row justify-content-center"><span style="font-weight: bold; font-size: 25px;">Search Bikes for Renting</span></div>
+            <div class="d-flex row justify-content-center"><span style="font-weight: bold; font-size: 25px;">Choose options</span></div>
             <hr/>
             <form action="{% url 'rent-search' %}" method="GET">
 
-                <div class="form-group">
+                {% comment %} <div class="form-group">
                     <label for="pickup">Pickup Date:</label>
                    <input type="text" required name="pickup" id="datepicker" placeholder="Click to select date" class="form-control" style="cursor:pointer"></p>
                 </div>
@@ -85,14 +85,23 @@
                         <option value="{{body_style}}">{{body_style}}</option>
                         {% endfor %}
                     </select>
-                </div>
-                
-                <div class="form-group">
-                    <button class="btn btn-block button-theme btn-md">
-                        <i class="fa fa-search"></i> Search
-                    </button>
-                </div>
+                </div> {% endcomment %}
             </form>
+
+            <li class="btn btn-block button-theme btn-md">
+                <a href="{% url 'bike' %}" class="btn btn-block button-theme btn-md">
+                    Book Bikes</a>
+            </li>
+
+            <li class="btn btn-block button-theme btn-md">
+                <a href="{% url 'rent-search' %}" class="btn btn-block button-theme btn-md">
+                    Rent Bikes</a>
+            </li>
+
+            <li class="btn btn-block button-theme btn-md">
+                <a href="{% url 'spare_parts' %}" class="btn btn-block button-theme btn-md">
+                    Spare Parts</a>
+            </li>
         </div>
         <!-- Search box 3 end -->
         <a class="carousel-control-prev none-580" href="#carouselExampleIndicators" role="button" data-slide="prev">

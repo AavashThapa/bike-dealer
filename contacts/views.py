@@ -48,8 +48,8 @@ def inquiry(request):
         # admin_info = User.objects.get(is_superuser=True)
         # admin_email = admin_info.email
         # send_mail(
-        #         'New Car Inquiry',
-        #         'You have a new inquiry for the car ' + car_title + '. Please login to your admin panel for more info.',
+        #         'New Bike Inquiry',
+        #         'You have a new inquiry for the Bike ' + Bike_title + '. Please login to your admin panel for more info.',
         #         'harribdhr@gmail.com',
         #         [admin_email],
         #         fail_silently=False,

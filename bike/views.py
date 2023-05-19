@@ -92,6 +92,7 @@ def bike_detail(request, id):
 def rent_search(request):
     search_fields = {}
     if 'pickup' in request.GET:
+        print("Running pickup ....")
         pickup = request.GET['pickup'] 
         date_split = pickup.split(' - ')
         pickup_date = date_split[0]
@@ -100,8 +101,11 @@ def rent_search(request):
         rent_search = True
         bikes = Bike.objects.filter(for_rent=True).exclude((Q(rented_bike__pickup_date__lte=pickup_date) & Q(rented_bike__dropoff_date__gte=pickup_date)) | (Q(rented_bike__pickup_date__gte=pickup_date) & Q(rented_bike__dropoff_date__lte=dropoff_date)) | (Q(rented_bike__pickup_date__gte=pickup_date) & Q(rented_bike__pickup_date__lte=dropoff_date)), rented_bike__returned_date=None  ).order_by('-created_date')
     else:
-        bikes = Bike.objects.filter(for_sale=True).order_by('-created_date')
-        rent_search=False
+        print("Running else")
+        bikes = Bike.objects.filter(Q(for_rent=True) | ~Q(for_sale=True)).order_by('-created_date')
+        rent_search=True
+
+
     model_search = Bike.objects.values_list('model', flat=True).distinct()
     city_search = Bike.objects.values_list('city', flat=True).distinct()
     year_search = Bike.objects.values_list('year', flat=True).distinct()

@@ -19,7 +19,7 @@
 </div>
 <!-- Banner end -->
 <!-- Search box 3 start -->
-<div class="search-box-3 sb-7 bg-active">
+{% comment %} <div class="search-box-3 sb-7 bg-active">
     <div class="container">
         <div class="search-area-inner">
             <div class="search-contents">
@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 <!-- Search box 3 end -->
 
 <!-- Featured car start -->
@@ -115,9 +115,9 @@
                     <div class="car-thumbnail">
                         <div style="z-index: 20;">
                         <a href="{% url 'bike_detail' bike.id %}" class="car-img">
-                            {% if bike.for_sale %}<div class="tag">For Sale</div> {%endif%}
-                            {% if bike.for_rent %}<div class="tag">Only For Rent</div> {%endif%}
-                            {% if bike.for_rent and bike.for_sale %}<div class="tag">For Sale/Rent</div> {%endif%}
+                            {% comment %} {% if bike.for_sale %}<div class="tag">For Sale</div> {%endif%} {% endcomment %}
+                            {% if bike.for_rent %}<div class="tag">For Rent</div> {%endif%}
+                            {% comment %} {% if bike.for_rent and bike.for_sale %}<div class="tag">For Sale/Rent</div> {%endif%} {% endcomment %}
 
                             <img class="d-block w-100" src="{{bike.bike_photo.url}}" alt="bike" style="min-height: 262px; max-height: 262px;">
                             <div class="facilities-list clearfix">

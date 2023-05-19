@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Bike, BikeOrder
 from django.utils.html import format_html
-
+from django.contrib.sites.models import Site
 # Register your models here.
 
 class BikeAdmin(admin.ModelAdmin):
@@ -25,3 +25,5 @@ class BikeOrderAdmin(admin.ModelAdmin):
 
 admin.site.register(Bike, BikeAdmin)
 admin.site.register(BikeOrder, BikeOrderAdmin)
+# admin.site.unregister(Site)
+

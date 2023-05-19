@@ -18,12 +18,19 @@ class Bike(models.Model):
     )
 
     year_choice = []
-    for r in range(2000, (datetime.now().year+1)):
+    for r in range(2022, (datetime.now().year+1)):
         year_choice.append((r,r))
 
     features_choices = (
-        ('Cruise Control', 'Cruise Control'),
-        ('Audio Interface', 'Audio Interface'),
+        ('ABS ', 'Anti-Lock Braking System'),
+        ('Disc Brake','Disc Brake'),
+        ('Off-Road ABS', 'Off-Road ABS'),
+        ('Traction Control','Traction Control'),
+        ('Rain Mode','Rain Mode'),
+        ('Sport Mode', 'Sport Mode'),
+        ('Economy Mode','Economy Mode'),
+        ('FI-Engine','Fuel Injected Engine'),
+        ('Carborator Engine','Carborator Engine'),
 
     )
 
@@ -82,6 +89,7 @@ class BikeOrder(models.Model):
     def save(self, *args, **kwargs):
         self.price = self.bike.price
         super().save(*args, **kwargs)
+        
 
     class Meta:
         verbose_name = "Bike Order"

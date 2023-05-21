@@ -128,12 +128,12 @@
                         {%endif%}
                         {%endif%}
 
-                        {% if single_bike.for_rent %}
+                        {% comment %} {% if single_bike.for_rent %}
                         {%if not bought%}
                         <button class="btn button-theme btn-md " data-toggle="modal" title="Rent this bike"
                             data-target="#rentModal">Rent</button>
                         {%endif%}
-                        {%endif%}
+                        {%endif%} {% endcomment %}
 
                         {% for rented_ in rented %}
                         <input type="hidden" id="rent_pickup_date_{{forloop.counter}}" value="{{rented_.pickup_date}}">
@@ -321,7 +321,7 @@
 
 
                         <br>
-                        <h3 class="sidebar-title">Car Specs</h3>
+                        <h3 class="sidebar-title"> Specs</h3>
                         <ul>
                             <li>
                                 <span><b>Color:</b> </span>{{single_bike.color}}
@@ -343,29 +343,29 @@
                             </li>
                             <li>
                                 <span><b>Transmission:</b> </span>{{single_bike.transmission}}
-                            </li>
-                            <li>
+                            </li> 
+                            {% comment %} <li>
                                 <span><b>Interior:</b> </span>{{single_bike.interior}}
-                            </li>
-                            <li>
+                            </li> {% endcomment %}
+                            {% comment %} <li>
                                 <span><b>Miles:</b> </span>{{single_bike.miles | intcomma}} miles
-                            </li>
-                            <li>
+                            </li> {% endcomment %}
+                            {% comment %} <li>
                                 <span><b>Passengers:</b> </span>{{single_bike.passengers}}
-                            </li>
-                            <li>
+                            </li> {% endcomment %}
+                            {% comment %} <li>
                                 <span><b>VID No.:</b> </span>{{single_bike.vin_no}}
-                            </li>
-                            <li>
+                            </li> {% endcomment %}
+                            {% comment %} <li>
                                 <span><b>Mileage:</b> </span>{{single_bike.milage}}
-                            </li>
+                            </li> {% endcomment %}
 
                             <li>
                                 <span><b>Fuel Type:</b> </span>{{single_bike.fuel_type}}
                             </li>
-                            <li>
+                            {% comment %} <li>
                                 <span><b>Owners:</b> </span>{{single_bike.no_of_owners}}
-                            </li>
+                            </li> {% endcomment %}
                         </ul>
                     </div>
 
